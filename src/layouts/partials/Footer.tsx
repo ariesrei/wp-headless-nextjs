@@ -1,12 +1,12 @@
-"use client";
+// "use client";
 
 import Logo from "@/components/Logo";
-import Social from "@/components/Social";
+
 import config from "@/config/config.json";
-import menu from "@/config/menu.json";
-import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import Link from "next/link";
+
+import WPFooterMenu from "@/components/WPFooterMenu";
+import WPSocial from "@/components/WPSocial";
 
 const Footer = () => {
   const { copyright } = config.params;
@@ -18,17 +18,12 @@ const Footer = () => {
           <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
             <Logo />
           </div>
+
           <div className="mb-8 text-center lg:col-6 lg:mb-0">
-            <ul>
-              {menu.footer.map((menu) => (
-                <li className="m-3 inline-block" key={menu.name}>
-                  <Link href={menu.url}>{menu.name}</Link>
-                </li>
-              ))}
-            </ul>
+            <WPFooterMenu/>
           </div>
           <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-            <Social source={social.main} className="social-icons" />
+            <WPSocial/>
           </div>
         </div>
       </div>
