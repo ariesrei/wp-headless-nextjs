@@ -1,8 +1,8 @@
 import DynamicIcon from "@/helpers/DynamicIcon";
-import { reqUrl } from '@/app/config';
+import { apiUrl } from '@/app/config';
 
 const WPSocial = async () => {
-  const req = await fetch(`${reqUrl}/socials?_fields=id,acf`);
+  const req = await fetch(`${apiUrl}/socials?_fields=id,acf`);
   const socials = await req.json();
 
   return (

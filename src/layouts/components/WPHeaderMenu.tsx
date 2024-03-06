@@ -1,6 +1,9 @@
-import { baseUrl, reqUrl } from '@/app/config';
+import { baseUrl, apiUrl} from '@/app/config';
+import next_config from '@/app/config';
+
 import Link from "next/link";
 import React from "react";
+
 import config from "@/config/config.json";
 
 export interface IChildNavigationLink {
@@ -17,12 +20,14 @@ export interface INavigationLink {
 
 const WPHeaderMenu = async () => {
 
-  const req = await fetch(`${reqUrl}/wp-next-menu`);
+  const req = await fetch(`${apiUrl}/wp-next-menu`);
   const wpnextmenus = await req.json();
   const { main }: { main: INavigationLink[] } = wpnextmenus;
   const pathname = baseUrl;
   
   const { navigation_button, settings } = config;
+  console.log(next_config)
+
 
   return (
 
@@ -63,6 +68,7 @@ const WPHeaderMenu = async () => {
         
         </React.Fragment>
       ))}
+
 
       {navigation_button.enable && (
       <li className="mt-4 inline-block lg:hidden">

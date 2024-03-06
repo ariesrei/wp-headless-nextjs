@@ -1,5 +1,5 @@
 import BlogCard from "@/components/BlogCard";
-import Social from "@/components/Social";
+// import Social from "@/components/Social";
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
@@ -58,7 +58,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
               <div className="content">
                 <MDXContent content={content} />
               </div>
-              <Social source={social} className="social-icons" />
+              {/* <Social source={social} className="social-icons" /> */}
             </div>
           </div>
 

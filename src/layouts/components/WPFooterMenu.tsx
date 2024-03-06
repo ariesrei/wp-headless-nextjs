@@ -1,8 +1,8 @@
-import { reqUrl } from '@/app/config';
+import { apiUrl } from '@/app/config';
 import Link from "next/link";
 
 const WPFooterMenu = async () => {
-    const req = await fetch(`${reqUrl}/wp-next-menu`);
+    const req = await fetch(`${apiUrl}/wp-next-menu`);
     const menu = await req.json();
 
     return (

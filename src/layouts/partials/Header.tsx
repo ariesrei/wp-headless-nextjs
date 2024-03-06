@@ -3,6 +3,8 @@ import React from "react";
 import config from "@/config/config.json";
 
 import Logo from "@/components/Logo";
+
+import WPHeaderLogo from "@/components/WPHeaderLogo";
 import WPHeaderMenu from "@/components/WPHeaderMenu";
 import { IoSearch } from "react-icons/io5/index.js";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
@@ -17,12 +19,12 @@ const Header = () => {
       
       <nav className="navbar container">
 
-        {/* logo */}
-        <div className="order-0">
+        
+        {/* <div className="order-0">
           <Logo />
         </div>
 
-        {/* navbar toggler */}
+         
         <input id="nav-toggle" type="checkbox" className="hidden" />
         <label htmlFor="nav-toggle" className="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1" >
           <svg  id="show-button" className="h-6 fill-current block" viewBox="0 0 20 20" >
@@ -34,12 +36,10 @@ const Header = () => {
             <title>Menu Close</title>
             <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)" ></polygon>
           </svg>
-        </label>
-        {/* /navbar toggler */}
-
-        {/* wp menu */}
-        <WPHeaderMenu/>
-
+        </label> */}
+        
+        <WPHeaderLogo />
+        <WPHeaderMenu />
 
         <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
@@ -61,6 +61,7 @@ const Header = () => {
             </Link>
           )}
         </div>
+
       </nav>
     </header>
   );

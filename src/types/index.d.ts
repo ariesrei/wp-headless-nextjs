@@ -12,19 +12,37 @@ export type RegularPage = {
 };
 
 export type Post = {
-  frontmatter: {
-    title: string;
-    meta_title?: string;
-    description?: string;
-    image?: string;
-    categories: string[];
-    author: string;
-    tags: string[];
-    date?: string;
-    draft?: boolean;
-  };
+
+  // frontmatter: {
+  //   title: string;
+  //   meta_title?: string;
+  //   description?: string;
+  //   image?: string;
+  //   categories: string[];
+  //   author: string;
+  //   tags: string[];
+  //   date?: string;
+  //   draft?: boolean;
+  // };
+
+  id?: number;
+  title: string['rendered'];
+  excerpt?: string['rendered'];
   slug?: string;
-  content?: string;
+  featured_media?: string;
+  date?: string;
+  author?: string;
+};
+
+
+export type SinglePost = {
+  id?: number;
+  title: string['rendered'];
+  content?: string['rendered'];
+  slug?: string;
+  featured_media?: string;
+  date?: string;
+  author?: string;
 };
 
 export type Author = {

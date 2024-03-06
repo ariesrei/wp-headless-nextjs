@@ -1,12 +1,13 @@
 import { markdownify } from "@/lib/utils/textConverter";
-import { reqUrl } from '@/app/config';
+import { apiUrl } from '@/app/config';
+import ImageFallback from "@/helpers/ImageFallback";
 
-const HomeBanner = async () => {
+const WPHomeBanner = async () => {
 
-    const req = await fetch(`${reqUrl}/frontpage?_fields=id,featured_media,acf`);
+    const req = await fetch(`${apiUrl}/frontpage?_fields=id,featured_media,acf`);
     const banner = await req.json();
 
-    const reqMedia = await fetch(`${reqUrl}/media/${banner.featured_media}`);
+    const reqMedia = await fetch(`${apiUrl}/media/${banner.featured_media}`);
     const feature_image = await reqMedia.json();
 
     return (
@@ -26,7 +27,7 @@ const HomeBanner = async () => {
                 
                     {feature_image.guid.rendered && (
                         <div className="col-12">
-                            <img
+                            <ImageFallback
                             src={feature_image.guid.rendered}
                             className="mx-auto"
                             width="800"
@@ -42,4 +43,4 @@ const HomeBanner = async () => {
     );
 };
 
-export default HomeBanner;
+export default WPHomeBanner;

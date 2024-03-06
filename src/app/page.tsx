@@ -1,21 +1,20 @@
 import SeoMeta from "@/partials/SeoMeta";
-import HomeBanner from "@/partials/HomeBanner";
-import HomeServices from "@/partials/HomeServices";
-import HomeTestimonials from "@/partials/HomeTestimonials";
+import WPHomeBanner from "@/partials/WPHomeBanner";
+import WPHomeServices from "@/partials/WPHomeServices";
+import WPHomeTestimonials from "@/partials/WPHomeTestimonials";
 import HomeCallToAction from "@/partials/HomeCallToAction";
 
 
 const Home = () => {
+
+
   return (
     <>
       <SeoMeta />
+      <WPHomeBanner />
+      <WPHomeServices />
 
-      <HomeBanner />
-
-      <HomeServices />
-
-      <HomeTestimonials />
-      
+      {/* <WPHomeTestimonials /> */}
       {/* <HomeCallToAction /> */}
 
     </>

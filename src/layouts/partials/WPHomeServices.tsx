@@ -1,15 +1,14 @@
-"use client";
-
 import { markdownify } from "@/lib/utils/textConverter";
-import { reqUrl, baseUrl } from '@/app/config';
+import { apiUrl } from '@/app/config';
 import ImageFallback from "@/helpers/ImageFallback";
 
-const HomeServices = async () => {
-    const req = await fetch(`${reqUrl}/services?_fields=title,content,featured_media`);
+const WPHomeServices = async () => {
+    
+    const req = await fetch(`${apiUrl}/services?_fields=title,content,featured_media`);
     const services = await req.json();
 
     for (let index = 0; index < services.length; index++) {
-        const reqMedia = await fetch(`${reqUrl}/media/${services[index].featured_media}?_fields=source_url`);
+        const reqMedia = await fetch(`${apiUrl}/media/${services[index].featured_media}?_fields=source_url`);
         const feature_image = await reqMedia.json();
         services[index]['source_url'] = feature_image.source_url;
     }
@@ -46,4 +45,4 @@ const HomeServices = async () => {
     );
 };
 
-export default HomeServices;
+export default WPHomeServices;

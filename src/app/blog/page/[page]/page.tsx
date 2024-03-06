@@ -42,29 +42,29 @@ function spreadPages(num: number): number[] {
 
 // for all regular pages
 const Posts = ({ params }: { params: { page: number } }) => {
-  const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
-  const { title, meta_title, description, image } = postIndex.frontmatter;
-  const posts: Post[] = getSinglePage(blog_folder);
-  const allCategories = getAllTaxonomy(blog_folder, "categories");
-  const categories = getTaxonomy(blog_folder, "categories");
-  const tags = getTaxonomy(blog_folder, "tags");
-  const sortedPosts = sortByDate(posts);
-  const totalPages = Math.ceil(posts.length / pagination);
-  const currentPage =
-    params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1;
-  const indexOfLastPost = currentPage * pagination;
-  const indexOfFirstPost = indexOfLastPost - pagination;
-  const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+  // const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
+  // const { title, meta_title, description, image } = postIndex.frontmatter;
+  // const posts: Post[] = getSinglePage(blog_folder);
+  // const allCategories = getAllTaxonomy(blog_folder, "categories");
+  // const categories = getTaxonomy(blog_folder, "categories");
+  // const tags = getTaxonomy(blog_folder, "tags");
+  // const sortedPosts = sortByDate(posts);
+  // const totalPages = Math.ceil(posts.length / pagination);
+  // const currentPage =
+  //   params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1;
+  // const indexOfLastPost = currentPage * pagination;
+  // const indexOfFirstPost = indexOfLastPost - pagination;
+  // const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   return (
     <>
-      <SeoMeta
+      {/* <SeoMeta
         title={title}
         meta_title={meta_title}
         description={description}
         image={image}
-      />
-      <PageHeader title={postIndex.frontmatter.title} />
+      /> */}
+      {/* <PageHeader title={postIndex.frontmatter.title} /> */}
       <section className="section">
         <div className="container">
           <div className="row gx-5">

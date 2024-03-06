@@ -1,6 +1,7 @@
 "use client";
 
 import config from "@/config/config.json";
+
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +22,7 @@ const Logo = ({ src }: { src?: string }) => {
     logo_width: any;
     logo_height: any;
     logo_text: string;
-    title: string;
+    title: string; 
   } = config.site;
 
   const { theme, resolvedTheme } = useTheme();

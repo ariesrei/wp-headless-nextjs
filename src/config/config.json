@@ -24,7 +24,8 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "&copy; Copyright 2024. WordPress Headless + NextJS"
+    "copyright": "&copy; Copyright 2024. WordPress Headless + NextJS",
+    "wpc7_form_id": 149
   },
 
   "navigation_button": {

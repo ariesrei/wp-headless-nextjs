@@ -5,10 +5,9 @@ import SeoMeta from "@/partials/SeoMeta";
 import { apiUrl} from '@/app/config';
 import PageHeader from "@/partials/PageHeader";
 
+const PrivacyPolicy = async () => {
 
-const About = async () => {
-
-  const req = await fetch(`${apiUrl}/pages?slug=about&_fields=id,title,content,excerpt,featured_media`);
+  const req = await fetch(`${apiUrl}/pages?slug=privacy-policy&_fields=id,title,content,excerpt,featured_media`);
   const about = await req.json()
 
   const reqMedia = await fetch(`${apiUrl}/media/${about[0].featured_media}?_fields=source_url`);
@@ -26,7 +25,7 @@ const About = async () => {
 
             <div className="row justify-center">
               <div className="text-center md:col-10 lg:col-7">
-                <h2 className="h3 mb-6"> About page is missing or not publish! </h2>
+                <h2 className="h3 mb-6"> Privacy policy page is missing or not publish! </h2>
               </div>
             </div>
           </div>
@@ -48,7 +47,7 @@ const About = async () => {
         <section className="section-sm">
           <div className="container">
             <div className="row justify-center">
-              <div className="text-center md:col-10 lg:col-7">
+              <div className="text-left md:col-10 lg:col-7">
 
                   {feature_image.source_url && (
                     <ImageFallback
@@ -59,11 +58,7 @@ const About = async () => {
                       alt={about[0].title.rendered}
                     />
                   )}
-      
-                {/* <h2
-                  dangerouslySetInnerHTML={markdownify(about[0].title.rendered)}
-                  className="h3 mb-6"
-                /> */}
+ 
                 <div className="content">
                   <MDXContent content={about[0].content.rendered} />
                 </div>
@@ -78,4 +73,4 @@ const About = async () => {
   );
 };
 
-export default About;
+export default PrivacyPolicy;

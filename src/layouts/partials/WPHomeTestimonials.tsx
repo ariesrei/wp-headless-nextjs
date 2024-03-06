@@ -1,29 +1,30 @@
 "use client";
 
-import { reqUrl } from '@/app/config';
+import { apiUrl } from '@/app/config';
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const HomeTestimonials = async () => {
+const WPHomeTestimonials = async () => {
 
-    const req = await fetch(`${reqUrl}/frontpage?_fields=acf`);
+    const req = await fetch(`${apiUrl}/frontpage?_fields=acf`);
     const frontpage = await req.json();
     const testimonial_header = frontpage.acf.testimonial_header;
     const testimonial_description = frontpage.acf.testimonial_description;
     
-    const reqTestimonial = await fetch(`${reqUrl}/acf_testimonials?_fields=acf`);
+    const reqTestimonial = await fetch(`${apiUrl}/acf_testimonials?_fields=acf`);
     const testimonials = await reqTestimonial.json();
 
     //get avatar url
     for (let index = 0; index < testimonials.length; index++) {
-        const reqMedia = await fetch(`${reqUrl}/media/${testimonials[index].acf.avatar}?_fields=source_url`);
+        const reqMedia = await fetch(`${apiUrl}/media/${testimonials[index].acf.avatar}?_fields=source_url`);
         const avatar_image = await reqMedia.json();
         testimonials[index]['acf']['avatar_url'] = avatar_image.source_url;
     }
 
+    console.log( testimonials );
     return (
     <>
     {testimonials && (
@@ -101,4 +102,4 @@ const HomeTestimonials = async () => {
     );
 };
 
-export default HomeTestimonials;
+export default WPHomeTestimonials;
